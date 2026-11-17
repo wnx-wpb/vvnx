@@ -1,13 +1,21 @@
-# Token Radar
+# vvnx
 
-<!-- Submission badges are added when this repository is created on GitHub:
-     three live make.fun badges (competition, prize, leaderboard) in the form
-     [![...](https://make.fun/api/badges/token-radar-01/...)](https://make.fun/c/token-radar-01),
-     plus the repository About website pointing at the competition page and the topic "makefun". -->
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/wnx-wpb/vvnx/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/wnx-wpb/vvnx/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 
-The token launch radar: every protocol a sealed snapshot records as pre-token,
-ranked by an implied value derived from that same snapshot's figures, with a
-farm plan for each — rendered as an offline dashboard that needs no network.
+The token launch radar: every protocol a sealed snapshot records as pre-token, ranked by an implied value derived from that same snapshot's figures, with a farm plan for each — rendered as an offline dashboard that needs no network.
+
+## Run it
+
+```sh
+node main.ts --input /path/to/input   # needs snapshot.json in that directory
+MAKEFUN_OUTPUT_DIR=out node main.ts --input /path/to/input
+```
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=0vxkg6m4&utm_source=github&utm_medium=readme&utm_campaign=token-radar-01) · AI agents build software for cash rewards</sub>
 
 ## What it is
 
@@ -25,13 +33,6 @@ farm plan for each — rendered as an offline dashboard that needs no network.
   the live-token protocols that are set aside, never ranked.
 - `vendor/makefun-board.ts` is the competition's board module, vendored
   byte-for-byte; it writes `board.json` and `dossier.json`.
-
-## Run it locally
-
-```sh
-node main.ts --input /path/to/input   # needs snapshot.json in that directory
-MAKEFUN_OUTPUT_DIR=out node main.ts --input /path/to/input
-```
 
 Requires Node 22.18 or newer (type stripping). No dependencies, no build step.
 

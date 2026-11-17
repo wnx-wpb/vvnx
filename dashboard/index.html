@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — the token launch radar</title>
+<meta name="description" content="A ranked board of pre-token protocols, with an implied value for each and a farm plan to match. Built from one sealed snapshot; nothing here is live.">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<main class="shell">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Token launch radar</p>
+      <h1>Token Radar</h1>
+      <p class="lede">Every protocol the snapshot records as pre-token, ranked by an implied value
+      derived from that same snapshot's figures — with a farm plan for each.</p>
+    </div>
+    <dl class="meta" id="meta"></dl>
+  </header>
+
+  <nav class="tabs" aria-label="Views">
+    <button type="button" id="tab-board" aria-selected="true">Pre-token board</button>
+    <button type="button" id="tab-live" aria-selected="false">Live tokens, set aside</button>
+  </nav>
+
+  <section id="view-board" aria-labelledby="tab-board">
+    <form class="controls" id="controls">
+      <label>Search
+        <input type="search" id="q" name="q" placeholder="Name or slug" autocomplete="off">
+      </label>
+      <label>Category
+        <select id="category" name="category"></select>
+      </label>
+      <label>Chain
+        <select id="chain" name="chain"></select>
+      </label>
+      <label>Scope
+        <select id="scope" name="scope">
+          <option value="all">All protocols</option>
+          <option value="watchlist">Watchlist only</option>
+          <option value="early">Early finds only</option>
+        </select>
+      </label>
+      <label>Sort by
+        <select id="sort" name="sort">
+          <option value="implied">Implied value</option>
+          <option value="tvl">TVL</option>
+          <option value="growth">7-day change</option>
+          <option value="age">Age</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </form>
+    <p class="count" id="count" role="status"></p>
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Protocol</th>
+            <th scope="col">Category</th>
+            <th scope="col">Chains</th>
+            <th scope="col" class="num">TVL</th>
+            <th scope="col" class="num">7-day</th>
+            <th scope="col" class="num">Age</th>
+            <th scope="col" class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="hint">Select a row for the protocol's detail view: its value breakdown and its farm plan.</p>
+
+    <section class="method" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">How the radar scores a protocol</h2>
+      <div id="method-body"></div>
+    </section>
+  </section>
+
+  <section id="view-live" aria-labelledby="tab-live" hidden>
+    <p class="lede">These protocols already have a token, so they are not ranked. They stay visible
+    because the market's own values for them are what calibrate the radar's base multiple.</p>
+    <div class="table-wrap">
+      <table id="live-table">
+        <thead>
+          <tr>
+            <th scope="col">Protocol</th>
+            <th scope="col">Category</th>
+            <th scope="col">Chains</th>
+            <th scope="col" class="num">TVL</th>
+            <th scope="col" class="num">Market cap</th>
+            <th scope="col" class="num">7-day</th>
+          </tr>
+        </thead>
+        <tbody id="live-rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p id="foot-note"></p>
+  </footer>
+</main>
+
+<dialog id="detail" aria-labelledby="detail-title">
+  <div class="dialog-head">
+    <h2 id="detail-title"></h2>
+    <button type="button" id="detail-close" aria-label="Close detail view">Close</button>
+  </div>
+  <div id="detail-body"></div>
+</dialog>
+
+<script src="../data.js"></script>
+<script src="model.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
